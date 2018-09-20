@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">android3_1</string>
-    <string name="zero">0</string>
+  <string name="app_name">android3_1</string>
+  <string name="zero">0</string>
+  <string name="task_1a">Task 1A</string>
 </resources>

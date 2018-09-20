@@ -22,4 +22,8 @@ public class MainPresenter extends MvpPresenter<MainView> {
   public void onBtnThreeClicked() {
     getViewState().onSetTextBtnThree(model.calculate(2));
   }
+
+  public void onBtnFourClicked() {
+    getViewState().startTask1aActivity();
+  }
 }

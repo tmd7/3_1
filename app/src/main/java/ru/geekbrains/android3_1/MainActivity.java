@@ -1,5 +1,6 @@
 package ru.geekbrains.android3_1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import butterknife.BindView;
@@ -9,11 +10,13 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 import java.util.Locale;
+import ru.geekbrains.android3_1.task1a.Task1aActivity;
 
 public class MainActivity extends MvpAppCompatActivity implements MainView {
   @BindView(R.id.btn_one)   Button buttonOne;
   @BindView(R.id.btn_two)   Button buttonTwo;
   @BindView(R.id.btn_three) Button buttonThree;
+  @BindView(R.id.btn_four) Button buttonFout;
 
   @InjectPresenter MainPresenter presenter;
 
@@ -31,7 +34,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     return presenter;
   }
 
-  @OnClick({ R.id.btn_one, R.id.btn_two, R.id.btn_three })
+  @OnClick({ R.id.btn_one, R.id.btn_two, R.id.btn_three, R.id.btn_four })
   public void onClick(Button button) {
     //presenter.counterClick(button.getId());
 
@@ -45,6 +48,8 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
       case R.id.btn_three:
         presenter.onBtnThreeClicked();
         break;
+      case R.id.btn_four:
+        presenter.onBtnFourClicked();
     }
   }
 
@@ -61,5 +66,10 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
   @Override
   public void onSetTextBtnThree(Integer val) {
     buttonThree.setText(String.format(Locale.getDefault(), "%d", val));
+  }
+
+  @Override public void startTask1aActivity() {
+    Intent intent =new Intent(this, Task1aActivity.class);
+    startActivity(intent);
   }
 }

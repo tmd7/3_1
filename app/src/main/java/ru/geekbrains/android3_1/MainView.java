@@ -13,4 +13,6 @@ public interface MainView extends MvpView {
   void onSetTextBtnTwo(Integer val);
 
   void onSetTextBtnThree(Integer val);
+
+  void startTask1aActivity();
 }
